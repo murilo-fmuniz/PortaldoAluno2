@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Painel do Aluno - UTFPR</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    // Paleta aproximada UTFPR: verde escuro e dourado/mostarda
+                    colors: {
+                        "primary": "#000000", /* preto UTFPR */
+                        "accent": "#FDB813", /* amarelo UTFPR */
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1E1E1E",
+                        "text-light-primary": "#000000",
+                        "text-dark-primary": "#ffffff",
+                        "text-light-secondary": "#666666",
+                        "text-dark-secondary": "#BBBBBB",
+                        "border-light": "#E0E0E0",
+                        "border-dark": "#333333",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div class="relative mx-auto flex h-auto min-h-screen w-full max-w-md flex-col overflow-x-hidden pb-24">
+        <!-- Top App Bar -->
+        <header
+            class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80">
+            <div class="flex size-12 shrink-0 items-center justify-start">
+                <a href="home.html" class="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-transparent text-text-light-primary dark:text-text-dark-primary">
+                    <span class="material-symbols-outlined text-2xl">arrow_back</span>
+                </a>
+            </div>
+            <h1 class="flex-1 text-center text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                Horários e Calendário</h1>
+            <div class="flex w-12 items-center justify-end">
+                <button
+                    class="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-transparent text-text-light-primary dark:text-text-dark-primary">
+                    <span class="material-symbols-outlined text-2xl">notifications</span>
+                </button>
+            </div>
+        </header>
+        <main class="flex-1 px-4">
+            <!-- My Classes Section -->
+            <section class="mt-4">
+                <div class="mb-4 flex items-center justify-between">
+                    <h2 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Minhas Disciplinas</h2>
+                    <a class="text-sm font-medium text-primary" href="#">Ver todas</a>
+                </div>
+                <div class="space-y-3">
+                    <!-- Class List Item 1 -->
+                    <div
+                        class="flex cursor-pointer items-center gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                        <div
+                            class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">code_blocks</span>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="font-medium text-text-light-primary dark:text-text-dark-primary">DWCO8A - Desenvolvimento de Aplicações Web</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Seg 13:00 - 14:40, Ter 13:00 - 14:40</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Seg: Bloco M, sala M012 | Ter: Bloco N, sala N103</p>
+                        </div>
+                        <div class="shrink-0 text-text-light-secondary dark:text-text-dark-secondary">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </div>
+                    </div>
+                    <!-- Class List Item 2 -->
+                    <div
+                        class="flex cursor-pointer items-center gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                        <div
+                            class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">calculate</span>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="font-medium text-text-light-primary dark:text-text-dark-primary">IHCO7O - Interação Humano-Computador</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Seg 14:40 - 16:40, Sex 13:50 - 15:30</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Bloco N, sala N101</p>
+                        </div>
+                        <div class="shrink-0 text-text-light-secondary dark:text-text-dark-secondary">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </div>
+                    </div>
+                    <!-- Class List Item 3 -->
+                    <div
+                        class="flex cursor-pointer items-center gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                        <div
+                            class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">draw</span>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="font-medium text-text-light-primary dark:text-text-dark-primary">ENCO6A - Engenharia de Software</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Ter 14:40 - 16:40, Sex 15:50 - 17:30</p>
+                            <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Bloco N, sala N101</p>
+                        </div>
+                        <div class="shrink-0 text-text-light-secondary dark:text-text-dark-secondary">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Academic Calendar Section -->
+            <section class="mt-8">
+                <h2 class="mb-4 text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Calendário Acadêmico
+                </h2>
+                <div class="rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                    <!-- Calendar Header -->
+                    <div class="mb-4 flex items-center justify-between">
+                        <button class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10">
+                            <span
+                                class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_left</span>
+                        </button>
+                        <h3 class="font-semibold text-text-light-primary dark:text-text-dark-primary">Outubro 2024</h3>
+                        <button class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-white/10">
+                            <span
+                                class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+                        </button>
+                    </div>
+                    <!-- Calendar Grid -->
+                    <div class="grid grid-cols-7 text-center text-sm">
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Dom</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Seg</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Ter</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Qua</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Qui</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Sex</div>
+                        <div class="py-2 font-medium text-text-light-secondary dark:text-text-dark-secondary">Sáb</div>
+                        <!-- Dates -->
+                        <div class="py-2 text-text-light-secondary dark:text-text-dark-secondary">29</div>
+                        <div class="py-2 text-text-light-secondary dark:text-text-dark-secondary">30</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">1</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">2</div>
+                        <div class="relative py-2 text-text-light-primary dark:text-text-dark-primary">3 <div
+                                class="absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent">
+                            </div>
+                        </div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">4</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">5</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">6</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">7</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">8</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">9</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">10</div>
+                        <div class="relative py-2 text-text-light-primary dark:text-text-dark-primary">11<div
+                                class="absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent">
+                            </div>
+                        </div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">12</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">13</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">14</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">15</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">16</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">17</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">18</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">19</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">20</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">21</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">22</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">23</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">24</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">25</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">26</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">27</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">28</div>
+                        <div class="py-2 text-text-light-primary dark:text-text-dark-primary">29</div>
+                        <div class="relative py-2 text-text-light-primary dark:text-text-dark-primary">30<div
+                                class="absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent">
+                            </div>
+                        </div>
+                        <div class="relative py-2 font-bold text-white"><span
+                class="absolute inset-0 top-1/2 z-0 mx-auto aspect-square w-7 -translate-y-1/2 rounded-full bg-primary"></span><span
+                class="relative z-10">31</span></div class="absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent">
+                    </div>
+                    <!-- Events List -->
+                    <div class="mt-4 border-t border-border-light pt-4 dark:border-border-dark">
+                        <h4 class="mb-3 font-semibold text-text-light-primary dark:text-text-dark-primary">Eventos de hoje (31 de out)</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="h-2 w-2 shrink-0 rounded-full bg-accent"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">
+                                        Entrega Projeto 2</p>
+                                    <p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">IHCO7O -
+                                        13:50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Bottom Tab Bar -->
+        <nav
+            class="fixed bottom-0 left-0 right-0 z-10 mx-auto h-20 max-w-md border-t border-border-light bg-card-light/80 backdrop-blur-sm dark:border-border-dark dark:bg-card-dark/80">
+            <div class="grid h-full grid-cols-4">
+                <a class="flex flex-col items-center justify-center gap-1 text-primary" href="#">
+                    <span class="material-symbols-outlined !font-bold"
+                        style="font-variation-settings: 'FILL' 1;">home</span>
+                    <span class="text-xs font-bold">Início</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 text-text-light-secondary dark:text-text-dark-secondary"
+                    href="#">
+                    <span class="material-symbols-outlined">grade</span>
+                    <span class="text-xs font-medium">Notas</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 text-text-light-secondary dark:text-text-dark-secondary"
+                    href="#">
+                    <span class="material-symbols-outlined">assignment</span>
+                    <span class="text-xs font-medium">Tarefas</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 text-text-light-secondary dark:text-text-dark-secondary"
+                    href="#">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text-xs font-medium">Perfil</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

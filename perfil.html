@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Perfil - Portal do Aluno UTFPR</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- JsBarcode para geração do código de barras -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000", /* preto UTFPR */
+                        "accent": "#FDB813", /* amarelo UTFPR */
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1E1E1E",
+                        "text-light-primary": "#000000",
+                        "text-dark-primary": "#ffffff",
+                        "text-light-secondary": "#666666",
+                        "text-dark-secondary": "#BBBBBB",
+                        "border-light": "#E0E0E0",
+                        "border-dark": "#333333",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div class="relative mx-auto flex h-auto min-h-screen w-full max-w-md flex-col overflow-x-hidden pb-24">
+        <!-- Top App Bar -->
+        <header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80">
+            <div class="flex size-12 shrink-0 items-center justify-start">
+                <a href="home.html" class="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-transparent text-text-light-primary dark:text-text-dark-primary">
+                    <span class="material-symbols-outlined text-2xl">arrow_back</span>
+                </a>
+            </div>
+            <h1 class="flex-1 text-center text-lg font-bold text-text-light-primary dark:text-text-dark-primary">
+                Perfil do Aluno</h1>
+            <div class="flex w-12 items-center justify-end">
+                <button class="flex h-12 cursor-pointer items-center justify-center rounded-lg bg-transparent text-text-light-primary dark:text-text-dark-primary">
+                    <span class="material-symbols-outlined text-2xl">settings</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 px-4">
+            <!-- Carteirinha Digital -->
+            <div class="mt-6 rounded-xl bg-card-light p-6 shadow-sm dark:bg-card-dark">
+                <div class="flex items-center gap-4">
+                    <div class="h-20 w-20 shrink-0 rounded-full bg-cover bg-center" style="background-image: url('https://portal.utfpr.edu.br/icones/cabecalho/logo-utfpr/@@images/image.png');"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Nome Sobrenome</h2>
+                        <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Engenharia de Computação</p>
+                        <p class="text-sm text-accent">RA: XXXXXXX</p>
+                    </div>
+                </div>
+                
+                <!-- Código de Barras -->
+                <div class="mt-6 flex justify-center">
+                    <svg id="barcode"></svg>
+                </div>
+                <script>
+                    JsBarcode("#barcode", "XXXXXXX", {
+                        format: "CODE128",
+                        width: 2,
+                        height: 100,
+                        displayValue: true,
+                        background: document.documentElement.classList.contains('dark') ? "#1E1E1E" : "#ffffff",
+                        lineColor: document.documentElement.classList.contains('dark') ? "#ffffff" : "#000000",
+                    });
+                </script>
+            </div>
+
+            <!-- Informações Acadêmicas -->
+            <div class="mt-6 space-y-4">
+                <!-- Coeficientes -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-xl bg-accent/10 p-4 text-center">
+                        <p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Coef. Absoluto</p>
+                        <p class="text-2xl font-bold text-accent">0.72</p>
+                    </div>
+                    <div class="rounded-xl bg-primary/10 p-4 text-center">
+                        <p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Coef. Normalizado</p>
+                        <p class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">0.62</p>
+                    </div>
+                </div>
+
+                <!-- Detalhes do Curso -->
+                <div class="rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                    <h3 class="mb-4 font-semibold text-text-light-primary dark:text-text-dark-primary">Informações do Curso</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">Período Atual</span>
+                            <span class="font-medium text-text-light-primary dark:text-text-dark-primary">7º Período</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">CH Cursada</span>
+                            <span class="font-medium text-text-light-primary dark:text-text-dark-primary">1200h/3600h</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">Situação</span>
+                            <span class="rounded-full bg-accent/20 px-3 py-1 text-sm font-medium text-accent">Regular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dados Pessoais -->
+                <div class="rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+                    <h3 class="mb-4 font-semibold text-text-light-primary dark:text-text-dark-primary">Dados Pessoais</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">E-mail</span>
+                            <span class="font-medium text-text-light-primary dark:text-text-dark-primary">nome.sobrenome@alunos.utfpr.edu.br</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">Campus</span>
+                            <span class="font-medium text-text-light-primary dark:text-text-dark-primary">Apucarana</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-light-secondary dark:text-text-dark-secondary">Ingresso</span>
+                            <span class="font-medium text-text-light-primary dark:text-text-dark-primary">2022/1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
